@@ -16,10 +16,11 @@ import products from "./data/products.json" assert { type: "json" };
 // Mongoose
 import mongoose from "mongoose";
 import { messageModel } from "./dao/mongo/models/messages.model.js";
-mongoose.connect('/AGREGAR BD/', {
+mongoose.connect('mongodb+srv://agustinatoriglia:63734327@ecommerce.ucwpzqb.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
+
 
 // Handlebars
 import handlebars from "express-handlebars";
