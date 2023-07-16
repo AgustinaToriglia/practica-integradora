@@ -15,7 +15,7 @@ import products from "./data/products.json" assert { type: "json" };
 
 // Mongoose
 import mongoose from "mongoose";
-import { messageModel } from "./dao/mongo/models/messages.model.js";
+import { messageModel } from "./dao/models/messages.model.js";
 mongoose.connect('mongodb+srv://agustinatoriglia:63734327@ecommerce.ucwpzqb.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
