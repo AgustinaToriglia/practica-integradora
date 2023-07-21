@@ -1,4 +1,4 @@
-const socket = io();
+/* const socket = io();
 
 // Actualizar lista de productos:
 function updateProducts(products) {
@@ -57,4 +57,4 @@ sendButton.addEventListener("click", () => {
         socket.emit("message", { user, message });
         messageInput.value = "";
     }
-});
+}); */

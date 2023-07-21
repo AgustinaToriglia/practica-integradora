@@ -7,10 +7,7 @@
 		"price": 1500,
 		"status": true,
 		"stock": 10,
-		"category": "entertainment",
-		"thumbnail": [
-			
-		]
+		"category": "entertainment"
 	},
 	{
 		"id": 2,
@@ -20,10 +17,7 @@
 		"price": 2000,
 		"status": true,
 		"stock": 20,
-		"category": "entertainment",
-		"thumbnail": [
-			
-		]
+		"category": "entertainment"
 	},
 	{
 		"id": 3,
@@ -33,10 +27,7 @@
 		"price": 2500,
 		"status": true,
 		"stock": 2000,
-		"category": "gamer",
-		"thumbnail": [
-			
-		]
+		"category": "gamer"
 	},
 	{
 		"id": 4,
@@ -46,10 +37,7 @@
 		"price": 2000,
 		"status": true,
 		"stock": 40,
-		"category": "gamer",
-		"thumbnail": [
-			
-		]
+		"category": "gamer"
 	},
 	{
 		"id": 5,
@@ -59,9 +47,6 @@
 		"price": 2500,
 		"status": true,
 		"stock": 50,
-		"category": "others",
-		"thumbnail": [
-			
-		]
+		"category": "others"
 	}
 ]
