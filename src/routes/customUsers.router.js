@@ -5,8 +5,8 @@ export default class CustomUsersRouter extends CustomRouter {
 		this.get('/', (req, res) => {
 			const payload = {
 				id: 10,
-				name: "Agustin",
-				age: 24,
+				name: "Agustina",
+				age: 27,
 			}
 			res.sendSuccess(payload);
 		});

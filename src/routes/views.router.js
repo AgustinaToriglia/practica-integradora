@@ -3,8 +3,8 @@ import { Router } from "express";
 const views = Router();
 
 // Mongoose
-import { productModel } from "../dao/mongo/models/product.model.js";
-import { cartModel } from "../dao/mongo/models/cart.model.js";
+import { productModel } from "../dao/models/product.model.js";
+import { cartModel } from "../dao/models/cart.model.js";
 
 // JWT
 import { authToken } from "../utils/jwt.utils.js";

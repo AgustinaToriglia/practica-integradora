@@ -1,3 +1,4 @@
+import e from "express";
 import { cartModel } from "../dao/models/cart.model.js";
 
 export default class CartsManager {
@@ -77,3 +78,4 @@ export default class CartsManager {
         }
     }
 }
+

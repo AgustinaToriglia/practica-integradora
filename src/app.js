@@ -29,9 +29,9 @@ const customSessionsRouter = new CustomSessionsRouter();
 import MongoStore from 'connect-mongo';
 import session from 'express-session';
 import mongoose from 'mongoose';
-import { messageModel } from './dao/mongo/models/messages.model.js';
-import { productModel } from './dao/mongo/models/product.model.js';
-const mongoUrl = "mongodb+srv://<USERNAME>:<PASSWORD>@cluster1.bysdr0i.mongodb.net/?retryWrites=true&w=majority"
+import { messageModel } from './dao/models/messages.model.js';
+import { productModel } from './dao/models/product.model.js';
+const mongoUrl = "mongodb+srv://agustinatoriglia:63734327@ecommerce.ucwpzqb.mongodb.net/"
 const enviroment = async () => {
     await mongoose.connect(mongoUrl);
 };
