@@ -9,9 +9,13 @@ import { cartModel } from "../dao/models/cart.model.js";
 // JWT
 import { authToken } from "../utils/jwt.utils.js";
 
+// Env
+import config from '../../config.js'
+const cookieSecret = config.COOKIE_SECRET;
+
 // Cookie parser
 import cookieParser from "cookie-parser";
-views.use(cookieParser("<COOKIESECRET>"));
+views.use(cookieParser(cookieSecret));
 
 // Función para validar y crear un carrito para el usuario:
 async function cartCookie(req, res) {
@@ -144,7 +148,7 @@ views.get("/products", async (req, res) => {
 
 		// Validar si las búsquedas son válidas:
 		if (products.data.length <= 0) {
-			return res.status(200).send(`There's no products for this search`);
+			return res.status(200).send(`There are no products for this search`);
 		};
 
 		if (filteredProducts.data.length > 0) {

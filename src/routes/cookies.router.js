@@ -1,8 +1,12 @@
 import { Router } from "express";
 import cookieParser from "cookie-parser";
 
+// Env
+import config from '../../config.js'
+const cookieSecret = config.COOKIE_SECRET;
+
 const cookies = Router();
-cookies.use(cookieParser("<COOKIESECRET>"));
+cookies.use(cookieParser(cookieSecret));
 
 // Endpoint para crear una cookie:
 cookies.get("/set", (req, res) => {
@@ -11,7 +15,7 @@ cookies.get("/set", (req, res) => {
 			maxAge: 5000,
 			signed: true,
 		});
-		return res.status(200).send(`Cookie setted`);
+		return res.status(200).send(`Cookie set`);
 	} catch (err) {
 		return res.status(500).json({ error: err.message });
 	};

@@ -3,6 +3,10 @@ import express from 'express';
 const app = express();
 const port = 8080;
 const host = '0.0.0.0';
+// Env
+import config from '../config.js'
+const mongoUrl = "mongodb+srv:agustinatoriglia:63734327@ecommerce.ucwpzqb.mongodb.net/";
+const mongoSessionSecret = "mongodb+srv:agustinatoriglia:63734327@ecommerce.ucwpzqb.mongodb.net/";
 
 // Utils
 import __dirname from './utils.js';
@@ -14,6 +18,8 @@ import viewsRoute from './routes/views.router.js';
 import messagesRoute from './routes/messages.router.js';
 import cookiesRoute from './routes/cookies.router.js';
 import sessionsRoute from './routes/sessions.router.js';
+import forkRoute from './routes/fork.router.js';
+
 
 // Router
 import router from './router/router.js';
@@ -31,17 +37,16 @@ import session from 'express-session';
 import mongoose from 'mongoose';
 import { messageModel } from './dao/models/messages.model.js';
 import { productModel } from './dao/models/product.model.js';
-const mongoUrl = "mongodb+srv://agustinatoriglia:63734327@ecommerce.ucwpzqb.mongodb.net/"
 const enviroment = async () => {
     await mongoose.connect(mongoUrl);
 };
 enviroment();
 app.use(
-    session({
-        store: MongoStore.create({ mongoUrl }),
-        secret: "<SECRET>",
-        resave: false,
-        saveUninitialized: true,
+	session({
+		store: MongoStore.create({ mongoUrl }),
+		secret: mongoSessionSecret,
+		resave: false,
+		saveUninitialized: true,
     })
 );
 
