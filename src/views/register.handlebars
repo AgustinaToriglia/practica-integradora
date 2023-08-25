@@ -1,23 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class='register-container'>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<p>Register</p>
+	<a href='/login'>Sign in</a>
+	<a href='/api/sessions/github'>Github</a>
 
-    {{!-- Google font --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+	<form class='register-form'>
 
-    {{!-- CSS --}}
-    <link rel="stylesheet" href="/css/{{style}}">
+		<label>First name</label>
+		<input type='text' name='first_name' required />
 
-    <title>{{documentTitle}}</title>
-</head>
+		<label>Last name</label>
+		<input type='text' name='last_name' required />
 
-<body>
-    {{{body}}}
-</body>
+		<label>Email</label>
+		<input type='email' name='email' required />
 
-</html>
+		<label>Password</label>
+		<input type='password' name='password' required />
+
+		<input type='submit' value='Send' class='register-button' />
+	</form>
+
+</div>
+
+<script src='/js/register.js'></script>
