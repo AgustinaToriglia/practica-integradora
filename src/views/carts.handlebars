@@ -10,9 +10,20 @@
 		{{/each}}
 
 		<div>
-			<p class='cart-total-text'>TOTAL: ${{total payload}}</p>
+			<p class='cart-total-text'>TOTAL: ${{getTotal payload}}</p>
 			<button class='cart-total-button'>PURCHASE</button>
 		</div>
+
+		<form class='product-form' cart='{{cart}}' product='{{product._id}}'>
+			<input type='submit' value='Add to cart' class='product-button' />
+		</form>
+
+		<form class='cart-form'>
+			<label>Total $</label>
+			<input type="text" value="{{getTotal payload}}" readonly />
+			<input type='submit' value='Send' class='login-button' />
+		</form>
+
 	</div>
 
 </div>

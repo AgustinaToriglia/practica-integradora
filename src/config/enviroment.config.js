@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export default {
-	MONGO_URL: 'mongodb+srv://agustinatoriglia:63734327@ecommerce.ucwpzqb.mongodb.net/',
+	MONGO_URL: process.env.MONGO_URL,
 	MONGO_SESSION_SECRET: process.env.MONGO_SESSION_SECRET,
 	GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
 	GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
@@ -11,4 +11,8 @@ export default {
 	COOKIE_SECRET: process.env.COOKIE_SECRET,
 	PORT: process.env.PORT,
 	HOST: process.env.HOST,
+	EMAIL: process.env.EMAIL,
+	EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
+	ACCOUNT_SID: process.env.ACCOUNT_SID,
+	AUTH_TOKEN: process.env.AUTH_TOKEN,
 };
