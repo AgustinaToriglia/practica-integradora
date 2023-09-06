@@ -10,8 +10,9 @@ import cors from "cors";
 import __dirname from './directory.js';
 import router from './routes/router.js';
 import setupSocket from './utils/socket.utils.js';
-import config from './config/enviroment.config.js';
+import config from './config/enviroment.config.js'
 import initializePassport from './config/passport.config.js';
+import logger from './utils/logger.utils.js';
 
 const mongoUrl = config.MONGO_URL;
 const mongoSessionSecret = config.MONGO_URL;
@@ -49,7 +50,7 @@ app.use(morgan('dev'));
 app.use(cors());
 
 const httpServer = app.listen(PORT, HOST, () => {
-	console.log(`Server up on http://${HOST}:${PORT}`);
+	logger.info(`Server up on http://${HOST}:${PORT}`)
 });
 setupSocket(httpServer);
 
