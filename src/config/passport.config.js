@@ -41,8 +41,8 @@ const initializePassport = () => {
 			{ passReqToCallback: true, usernameField: 'email' },
 			async (req, username, password, done) => {
 				try {
-					// if (username == 'adminCoder@coder.com')
-					// 	return done(null, false, `Can't create an admin account.`);
+					if (username == 'adminCoder@coder.com')
+						return done(null, false, `Can't create an admin account.`);
 
 					const user = await adminModel.findOne({ email: username });
 					if (user) return done(null, false, `Email already exist.`);
