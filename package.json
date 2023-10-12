@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
     "nodemon": "^3.0.1"
   },
   "dependencies": {
@@ -23,6 +25,7 @@
     "mongose": "^0.0.2-security",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
+    "nock": "^13.3.3",
     "nodemailer": "^6.9.4",
     "npm": "^10.1.0",
     "passport": "^0.6.0",
@@ -30,7 +33,9 @@
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
     "passport-oauth2": "^1.7.0",
+    "sinon": "^16.1.0",
     "socket.io": "^4.7.1",
+    "supertest": "^6.3.3",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",
     "twilio": "^4.16.0",
@@ -41,10 +46,19 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:carts && npm run test:products && npm run test:sessions",
+    "test:carts": "mocha ./test/carts.test.js --timeout 10000",
+    "test:products": "mocha ./test/products.test.js --timeout 10000",
+    "test:sessions": "mocha ./test/sessions.test.js --timeout 10000",
+    "start": "SET NODE_ENV=production && nodemon ./src/app.js",
+    "start:local": "SET NODE_ENV=local && nodemon ./src/app.js",
+    "start:development": "SET NODE_ENV=development && nodemon ./src/app.js",
+    "start:docker": "nodemon ./src/app.js",
+    "format": "prettier --write \"**/*.js\"",
+    "dev": "nodemon src/app.js"
+
   },
+
   "author": "",
   "license": "ISC",
   "description": ""

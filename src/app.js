@@ -24,57 +24,55 @@ const HOST = config.HOST;
 
 const swaggerOptions = {
 	definition: {
-		openaip: "1.0.0",
+		openaip: '1.0.0',
 		info: {
-			title: "API documentation",
-			version: "1.0.0",
+			title: 'API documentation',
+			version: '1.0.0',
 			description:
-				"Backend server in charge of managing: Products, Carts, Users (divided into User, Premium and Admin roles), Messages, Sessions, Tickets and Views. It is designed to provide a robust and secure service that allows customers to interact efficiently and securely with our platform. Technologies Used: Javascript, HTML, CSS, Mongo, Mongoose, Faker, Bcrypt, Dotenv, Cors, Cookie-parser, Express, Handlebars, Morgan, Nodemailer, Nodemon, Passport, Socket, Swagger, Twilio, Winston, among others.",
+				'Backend server in charge of managing: Products, Carts, Users (divided into User, Premium and Admin roles), Messages, Sessions, Tickets and Views. It is designed to provide a robust and secure service that allows customers to interact efficiently and securely with our platform. Technologies Used: Javascript, HTML, CSS, Mongo, Mongoose, Faker, Bcrypt, Dotenv, Cors, Cookie-parser, Express, Handlebars, Morgan, Nodemailer, Nodemon, Passport, Socket, Swagger, Twilio, Winston, among others.',
 		},
 	},
 	apis: [`${__dirname}/docs/*.yaml`],
 };
 const specs = swaggerJSDoc(swaggerOptions);
 
-const initializeApp = () => {
-	const app = express();
-	initializePassport();
-	
-	app.use(
-		session({
-			store: MongoStore.create({ mongoUrl }),
-			secret: mongoSessionSecret,
-			resave: false,
-			saveUninitialized: false,
-		})
-	);
-	app.use(
-		compression({
-			brotli: {
-				enable: true,
-				zlib: {},
-			},
-		})
-	);
-	app.use(passport.initialize());
-	app.use(passport.session());
-	app.engine("handlebars", handlebars.engine());
-	app.set("views", __dirname + "/views");
-	app.set("view engine", "handlebars");
-	app.use(express.static(__dirname + "/public"));
-	app.use(express.json());
-	app.use(express.urlencoded({ extended: true }));
-	app.use(cookieParser(cookieSecret));
-	app.use(morgan("dev"));
-	app.use(cors());
-	app.use("/docs", swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
+const app = express();
+initializePassport();
 
-	const httpServer = app.listen(PORT, HOST, () => {
-		logger.info(`Server up on http://${HOST}:${PORT}`);
-	});
-	setupSocket(httpServer);
+app.use(
+	session({
+		store: MongoStore.create({ mongoUrl }),
+		secret: mongoSessionSecret,
+		resave: false,
+		saveUninitialized: false,
+	})
+);
+app.use(
+	compression({
+		brotli: {
+			enable: true,
+			zlib: {},
+		},
+	})
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.engine('handlebars', handlebars.engine());
+app.set('views', __dirname + '/views');
+app.set('view engine', 'handlebars');
+app.use(express.static(__dirname + '/public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser(cookieSecret));
+app.use(morgan('dev'));
+app.use(cors());
+app.use('/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
 
-	router(app);
-};
+const httpServer = app.listen(PORT, HOST, () => {
+	logger.info(`Server up on http://${HOST}:${PORT}`);
+});
+setupSocket(httpServer);
 
-initializeApp();
+router(app);
+
+export default app;

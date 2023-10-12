@@ -15,7 +15,7 @@ import roleAuth from '../middlewares/role.middleware.js';
 const router = Router();
 
 router.get('/', roleAuth('admin'), carts);
-router.get('/:cid', roleAuth(['admin', 'premium', 'user']), cart);
+router.get('/:cid', roleAuth(['admin', 'premium', 'user']),cart);
 router.post('/', roleAuth(['admin', 'premium']), insertCart);
 router.post('/:cid/product/:pid', roleAuth(['premium', 'user']), insertProduct);
 router.put('/:cid', roleAuth(['premium', 'user']), editCart);
