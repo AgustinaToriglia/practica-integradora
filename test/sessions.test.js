@@ -2,7 +2,7 @@ import chai from 'chai';
 import supertest from 'supertest';
 import { mock_data } from './mock_data.js';
 
-const requester = supertest('http://localhost:8080/api/sessions');
+const requester = supertest('http://0.0.0.0:8080/api/sessions');
 const expect = chai.expect;
 
 describe('Testing Sessions module', () => {

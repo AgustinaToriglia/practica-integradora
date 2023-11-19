@@ -1,4 +1,4 @@
-import logger from '../../utils/logger.util.js';
+// import logger from '../../utils/logger.utils.js';
 
 const productsForm = document.querySelectorAll('.product-form');
 
