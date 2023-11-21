@@ -20,10 +20,10 @@ class CartsMongoDAO {
 		}
 	}
 
-	async getCartDao(cid) {
+	async getCartDao() {
 		try {
-			const cart = await cartModel.findById(cid).populate('products._id');
-			if (!cart) return `No cart found with ID '${cid}'.`;
+			const cart = await cartModel.findById().populate('products._id');
+			if (!cart) return `No cart found with ID ''.`;
 			return cart;
 		} catch (error) {
 			return `${error}`;

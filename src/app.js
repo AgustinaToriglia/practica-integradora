@@ -29,7 +29,7 @@ const swaggerOptions = {
 			title: 'API documentation',
 			version: '1.0.0',
 			description:
-				'Backend server in charge of managing: Products, Carts, Users (divided into User, Premium and Admin roles), Messages, Sessions, Tickets and Views. It is designed to provide a robust and secure service that allows customers to interact efficiently and securely with our platform. Technologies Used: Javascript, HTML, CSS, Mongo, Mongoose, Faker, Bcrypt, Dotenv, Cors, Cookie-parser, Express, Handlebars, Morgan, Nodemailer, Nodemon, Passport, Socket, Swagger, Twilio, Winston, among others.',
+				'Backend server for educational purposes, using NodeJS.'
 		},
 	},
 	apis: [`${__dirname}/docs/*.yaml`],

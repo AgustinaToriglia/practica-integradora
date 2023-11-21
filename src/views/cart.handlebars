@@ -1,6 +1,6 @@
 <div class='cart-container'>
 	<div class='cart-list'>
-		{{#each payload}}
+		{{#each cart.products}}
 			<div class='cart-item'>
 				<p>{{this._id.title}}</p>
 				<p>${{this._id.price}}</p>
@@ -10,7 +10,7 @@
 		{{/each}}
 
 		<div>
-			<p class='cart-total-text'>TOTAL: ${{getTotal payload}}</p>
+			<p class='cart-total-text'>TOTAL: ${{getTotal cart.products}}</p>
 			<button class='cart-total-button'>PURCHASE</button>
 		</div>
 
@@ -20,7 +20,7 @@
 
 		<form class='cart-form'>
 			<label>Total $</label>
-			<input type='text' value='{{getTotal payload}}' readonly />
+			<input type='text' value='{{getTotal cart.products}}' readonly />
 			<input type='submit' value='Send' class='login-button' />
 		</form>
 

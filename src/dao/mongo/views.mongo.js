@@ -156,12 +156,18 @@ class ViewsMongoDAO {
 	async getCartDao(req, res) {
 		try {
 			const { cid } = req.params;
-			const cart = await cartModel
-				.findById(cid)
-				.populate('products._id')
-				.lean();
-			if (!cart) return `No cart found with ID '${cid}'`;
+			const carts = await cartModel.find().lean();
 
+			console.log('Carts in getCartDao:', carts);
+			if (!carts || carts.length === 0) {
+				return `No carts found`;
+			}
+	
+			const products = carts.reduce((allProducts, cart) => {
+				// Concatenar los productos de cada carrito en una sola matriz
+				return allProducts.concat(cart.products);
+			}, []);
+	
 			const payload = {
 				header: true,
 				cart: cid,
@@ -171,13 +177,17 @@ class ViewsMongoDAO {
 					multiply,
 					getTotal,
 				},
-				payload: cart.products,
+				payload: {
+					products: products,
+				},
 			};
+	
 			return payload;
 		} catch (error) {
 			return `${error}`;
 		}
 	}
+	
 
 	async getRestoreDao(req, res) {
 		try {

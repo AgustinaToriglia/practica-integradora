@@ -20,7 +20,7 @@ router.get('/register', register);
 router.get('/chat', chat);
 router.get('/products', products);
 router.get('/product/:pid', product);
-router.get('/cart/:cid', cart);
+router.get('/cart', cart);
 router.get('/restore', roleAuth('user'), restore);
 
 export default router;

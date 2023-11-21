@@ -33,11 +33,16 @@ export function multiply(a, b) {
 }
 
 export function getTotal(items) {
-	let total = 0;
-	for (const item of items) {
-		total += item._id.price * item.quantity;
-	}
-	return total;
+    if (!Array.isArray(items)) {
+        console.error('Error: items is not an array', items);
+        return 0; 
+    }
+
+    let total = 0;
+    for (const item of items) {
+        total += item._id.price * item.quantity;
+    }
+    return total;
 }
 
 export function getAmount(items) {
